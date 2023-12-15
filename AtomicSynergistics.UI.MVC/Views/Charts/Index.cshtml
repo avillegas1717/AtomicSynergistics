@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Charts";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+        <h4 class="card-title">Total Sales 2022</h4>
+        <canvas id="lineChart" style="height: 380px; display: block; width: 761px;" width="951" height="475" class="chartjs-render-monitor"></canvas>
+        @{
+            //Retrieve the chart from the Viewbag in the Charts Controller
+            ChartJSCore.Models.Chart lineChart = (ChartJSCore.Models.Chart)ViewData["lineChart"];
+        }
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+        <h4 class="card-title">Total Sales By Salesperson - 2022</h4>
+        <canvas id="barChart" style="height: 380px; display: block; width: 761px;" width="951" height="475" class="chartjs-render-monitor"></canvas>
+        @{
+            //Retrieve the chart from the Viewbag in the Charts Controller
+            ChartJSCore.Models.Chart barChart = (ChartJSCore.Models.Chart)ViewData["BarChart"];
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        @Html.Raw(lineChart.CreateChartCode("lineChart"));
+        @Html.Raw(barChart.CreateChartCode("barChart"));
+    </script>
+}

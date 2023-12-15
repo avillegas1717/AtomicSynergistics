@@ -1,0 +1,24 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.ProductStatus
+
+@{
+    ViewData["Title"] = Model.ProductStatusName;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="text-clientGreen">Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductStatusName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductStatusName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-clientDkGrey" asp-action="Edit" asp-route-id="@Model?.ProductStatusId">Edit</a>
+    <a class="btn btn-clientGreen" asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<li class="nav-item dropdown">
+    <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
+        <div class="navbar-profile">
+            <i class="mdi mdi-account-circle mdi-36px text-clientGreen"></i>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <p class="mb-0 d-none d-sm-block navbar-profile-name">@User.Identity?.Name</p>
+                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+            }
+        </div>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @if (User.IsInRole("Admin"))
+            {
+
+
+                <h6 class="p-3 mb-0"><i class="mdi mdi-security">Admin</i></h6>
+                <div class="dropdown-divider"></div>
+                <div class="preview-item-content">
+                    <a class="nav-link" href="@Url.Action("ListRoles", "Administration")"> Roles </a>
+                    <a class="nav-link" href="@Url.Action("ListUsers", "Administration")"> Users </a>
+                </div>
+            }
+            <div class="dropdown-divider"></div>
+            <form class="dropdown-item preview-item" asp-area="identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+@*                <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                </div>*@
+                <div class="preview-item-content">
+                    <button type="submit" class="btn btn-clientGreen">
+                        <p class="preview-subject mb-1">Log out</p>
+                    </button>
+                </div>
+            </form>
+
+        }
+    </div>
+</li>
+

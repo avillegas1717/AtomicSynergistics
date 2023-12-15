@@ -1,0 +1,193 @@
+/*Client color-profile */
+/*
+#455515 Green
+#939393 Light Grey
+#444444 Dark Grey
+#000000 Black
+*/
+
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+/*Index styling*/
+
+.indexLink {
+    text-decoration: none !important;
+    color: rgb(69,85,21) !important;
+    font-weight: bold !important;
+}
+
+    .indexLink:hover {
+        text-decoration: underline !important;
+        font-size: 20px !important;
+    }
+
+/*Details styling*/
+
+/*Delete styling*/
+.DelHeader {
+    margin-top: 20px;
+    font-size: xx-large;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    text-align: center;
+    max-width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.DelRow {
+    font-size: large;
+}
+
+.delBtn {
+    font-size: 15px;
+}
+
+#myModal {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 900px; /* Set a maximum width if necessary */
+}
+
+table .DelTable {
+}
+
+.DelTable th {
+    color: rgb(69,85,21);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.delHeader {
+    display: flow;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+
+
+delModalLabel {
+    text-decoration: underline;
+}
+
+.DelHead {
+    color: #455515;
+}
+
+.DelText {
+    background-color: #455515;
+    text-align: center;
+}
+
+.delHeader h2 {
+    font-size: 50px;
+    background-color: #455515;
+}
+
+.DelTable tr hr {
+    color: #455515 !important;
+}
+
+.DelTable dd {
+    margin-right: 10px;
+    color: #939393;
+    font-size: 17px;
+    padding: 15px;
+}
+
+.DelTable span {
+    border: solid 3px #455515;
+}
+
+table.DelTable tbody tr td,
+table.DelTable thead tr th,
+table.DelTable thead {
+    border-left: 1px solid #455515;
+    border-right: 1px solid #455515;
+}
+
+
+/*Create/Edit styling*/
+
+.card {
+    background-color: rgba(25, 28, 36, .75) !important;
+}
+
+.delDialog {
+    min-width: 60vw;
+}
+
+.delContent {
+    display: flex;
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 0.9375rem;
+    display: grid;
+}
+
+.auth.login-bg {
+    background: url("../assets/images/AS_Banner.png");
+    background-size: cover;
+    min-height: 75vh;
+}
+
+.auth .login-half-bg {
+    background: url("../assets/images/AS_Banner.png");
+    background-size: cover;
+}
+
+.auth.register-half-bg {
+    background: url("../assets/images/AS_Banner.png");
+    background-size: cover;
+    min-height: 75vh;
+}
+
+.card.corona-gradient-card {
+    background-image: linear-gradient(to left, #b9d75e, #455515);
+}
+
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand img {
+    width: calc(300px - 120px);
+    height: 50px;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini img {
+    width: calc(100px - 50px);
+    height: 50px;
+}
+
+
+
+
+/*DataTable Styles*/
+
+table.dataTable tr.even {
+        background-color: #111111;
+    }
+
+.table, .jsgrid .jsgrid-table {
+    --bs-table-accent-bg: #111111;
+}

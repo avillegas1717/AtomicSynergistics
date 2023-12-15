@@ -1,0 +1,53 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Sale
+
+@{
+    ViewData["Title"] = "Edit Sale";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Edit:</h3>
+                <h4 class="card-title text-center">Sale @Model.SaleId</h4>
+                <hr />
+                <form asp-action="Edit" class="forms-sample">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="SaleId" />
+                    <div class="form-group row">
+                        <label asp-for="SaleDate" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="SaleDate" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="SaleDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="SalespersonId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="SalespersonId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.SalespersonId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="CustomerId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="CustomerId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.CustomerId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="SaleTotal" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="SaleTotal" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="SaleTotal" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-clientGreen me-2">Submit</button>
+                    <a asp-action="index" class="btn btn-dark">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

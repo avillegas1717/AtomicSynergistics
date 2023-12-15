@@ -1,0 +1,30 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Country
+
+@{
+    ViewData["Title"] = Model.CountryName;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="text-clientGreen">Details</h2>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.CountryName)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.CountryName)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.Region.RegionName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-clientDkGrey" asp-action="Edit" asp-route-id="@Model?.CountryId">Edit</a> 
+    <a class="btn btn-clientGreen" asp-action="Index">Back to List</a>
+</div>

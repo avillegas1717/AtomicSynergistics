@@ -1,0 +1,200 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Create New:</h3>
+            <h4 class="card-title text-center">Employee</h4>
+            <hr />
+            <form asp-action="Create" class="form-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h5 class="text-center text-clientGrey">Contact Information</h5>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="FirstName" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="FirstName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="LastName" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="LastName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Phone" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Phone" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Email" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Email" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr />
+                <h5 class="text-center text-clientGrey">Primary Address</h5>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Address" class="col-sm-3 col-form-label ">Street Address</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Address" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="PostalCode" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="PostalCode" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="City" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="City" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CountryId" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="CountryId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.CountryId"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="State" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="State" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+
+
+
+                </div>
+                <hr />
+                <h5 class="text-center text-clientGrey">Position Information </h5>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Position" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Position" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="Position" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Salary" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Salary" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="Salary" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="DepartmentId" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="DepartmentId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.DepartmentId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ManagerId" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="ManagerId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.ManagerId"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="HireDate" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="HireDate" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="HireDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="TerminationDate" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="TerminationDate" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="TerminationDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-clientGreen" />
+                    <a class="btn btn-clientBlack" asp-action="Index">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.SaleProduct>
+
+@{
+    ViewData["Title"] = "Sale Product";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sale)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sale.SaleId)
+            </td>
+            <td>
+                  <a asp-action="Edit" asp-route-id="@item.SaleProductId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                  <a asp-action="Delete" asp-route-id="@item.SaleProductId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

@@ -1,0 +1,72 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Vendor
+
+@{
+    ViewData["Title"] = Model.VendorName;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="text-clientGreen">Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorName)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorName)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorContact)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorContact)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorPhone)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorPhone)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorEmail)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorEmail)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorAddress)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorAddress)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorCity)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorCity)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorState)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorState)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.VendorPostalCode)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.VendorPostalCode)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-clientDkGrey" asp-action="Edit" asp-route-id="@Model?.VendorId">Edit</a>
+    <a class="btn btn-clientGreen" asp-action="Index">Back to List</a>
+</div>

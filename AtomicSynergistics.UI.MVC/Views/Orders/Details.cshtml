@@ -1,0 +1,42 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Order
+
+@{
+    ViewData["Title"] = "Order #" + Model.OrderId;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="text-clientGreen">Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.Ponumber)
+        </dt>
+        <dd class = "col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.Ponumber)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.OrderTotal)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.OrderTotal)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.Vendor)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.Vendor.VendorName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-clientDkGrey" asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a>
+    <a class="btn btn-clientGreen" asp-action="Index">Back to List</a>
+</div>

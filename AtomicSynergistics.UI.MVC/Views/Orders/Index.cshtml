@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Order>
+
+@{
+    ViewData["Title"] = "Order";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ponumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.OrderId" class="indexLink">
+                @Html.DisplayFor(modelItem => item.Ponumber)
+                    </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.VendorAddress)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.OrderId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTable.moment("M/D/YYYY");
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

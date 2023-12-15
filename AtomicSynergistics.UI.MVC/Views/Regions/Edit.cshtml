@@ -1,0 +1,35 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Region
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Edit:</h3>
+                <h4 class="card-title text-center">@Model.RegionName</h4>
+                <hr/>
+                <form asp-action="Edit" class="forms-sample">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="RegionId" />
+                    <div class="form-group row">
+                        <label asp-for="RegionName" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input type="text" asp-for="RegionName" class="form-control bg-clientBlack text-light">
+                            <span asp-validation-for="RegionName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-clientGreen me-2">Submit</button>
+                    <a asp-action="index" class="btn btn-dark">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

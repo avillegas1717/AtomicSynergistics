@@ -1,0 +1,99 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Vendor>
+
+@{
+    ViewData["Title"] = "Vendors";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorEmail)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.VendorAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.VendorId" class="indexLink">
+                @Html.DisplayFor(modelItem => item.VendorName)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorEmail)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.VendorAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td> *@
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.VendorId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.VendorId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

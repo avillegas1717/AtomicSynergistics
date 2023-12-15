@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+    <h1>@ViewData["Title"]</h1>
+
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactEmail)
+                </th>
+                @*  <th>
+                @Html.DisplayNameFor(model => model.BillingAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillingPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th> *@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.CustomerId" class="indexLink">
+                            @Html.DisplayFor(modelItem => item.CustomerName)
+                        </a>
+                    </td>
+                    @*  <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td> *@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactEmail)
+                    </td>
+                    @*  <td>
+                @Html.DisplayFor(modelItem => item.BillingAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillingPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td> *@
+
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId" class="btn btn-inverse-clientGreen">Edit</a> 
+               
+                    <a asp-action="Delete" asp-route-id="@item.CustomerId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Department>
+
+@{
+    ViewData["Title"] = "Depts";
+}
+
+<h1>Depts</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                 
+                @Html.DisplayFor(modelItem => item.Location.Branch)
+                    
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.DepartmentId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.DepartmentId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTable.moment.(MM/Do/YYYY);
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+}

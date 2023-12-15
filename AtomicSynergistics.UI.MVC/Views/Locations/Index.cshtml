@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Location>
+
+@{
+    ViewData["Title"] = "Locations";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationAddress)
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.LocationCity)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.LocationState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(AbandonedMutexException=> item.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationAddress)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.LocationCity)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.LocationId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.LocationId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

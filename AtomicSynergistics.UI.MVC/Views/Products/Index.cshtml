@@ -1,0 +1,110 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostPerUnit)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.PricePerUnit)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.UnitType)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsOnOrder)
+            </th>
+         @*    <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th> *@
+          @*   <th>
+                @Html.DisplayNameFor(model => model.ProductStatus)
+            </th> *@
+         @*    <th>
+                @Html.DisplayNameFor(model => model.ProductType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.ProductId" class="indexLink">
+                @Html.DisplayFor(modelItem => item.ProductName)
+                    </a>
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td> *@
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.CostPerUnit)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerUnit)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.UnitType)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+            </td>
+          @*   <td>
+                @Html.DisplayFor(modelItem => item.ProductImage)
+            </td> *@
+       @*      <td>
+                @Html.DisplayFor(modelItem => item.ProductStatus.ProductStatusName)
+            </td> *@
+          @*   <td>
+                @Html.DisplayFor(modelItem => item.ProductType.ProductTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.VendorAddress)
+            </td> *@
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

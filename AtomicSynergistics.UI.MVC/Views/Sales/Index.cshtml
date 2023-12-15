@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Sale>
+
+@{
+    ViewData["Title"] = "Sale";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salesperson)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.SaleId" class="indexLink">
+                @Html.DisplayFor(modelItem => item.SaleDate)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.BillingAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salesperson.FirstName)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.SaleId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.SaleId" class="btn btn-inverse-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });</script>
+}

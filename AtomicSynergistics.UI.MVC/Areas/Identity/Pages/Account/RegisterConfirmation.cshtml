@@ -1,0 +1,40 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card corona-gradient-card">
+        <div class="card-body py-0 px-0 px-sm-3">
+            <div class="row align-items-center">
+                <div class="col-4 col-sm-3 col-xl-2">
+                    @* <img src="assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid" alt=""> *@
+                </div>
+                <div class="col-8 col-sm-9 col-xl-10 p-0">
+                    @{
+                        if (@Model.DisplayConfirmAccountLink)
+                        {
+                            <p class="pt-3">
+                                This app does not currently have a real email sender registered, 
+                                Normally this would be emailed:
+
+                                <a class="btn btn-clientGreen btn-md" id="confirm-link" href="@Model.EmailConfirmationUrl">Confirm account</a>
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                Please check your email to confirm your account.
+
+                            </p>
+                        }
+                    }
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

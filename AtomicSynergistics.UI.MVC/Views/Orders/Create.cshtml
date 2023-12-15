@@ -1,0 +1,59 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Order
+
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Create New:</h3>
+                <h4 class="card-title text-center">Order</h4>
+                <hr />
+                <form asp-action="Create" class="forms-sample">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group row">
+                        <label asp-for="Ponumber" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="Ponumber" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="Ponumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="VendorId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="VendorId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.VendorId"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="OrderDate" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="OrderDate" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="OrderDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="OrderTotal" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="OrderTotal" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="OrderTotal" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-clientGreen me-2">Submit</button>
+                    <a asp-action="index" class="btn btn-dark">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

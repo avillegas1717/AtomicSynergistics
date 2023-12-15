@@ -1,0 +1,48 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Location
+
+@{
+    ViewData["Title"] = Model.LocationCity + " Branch";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2 class="text-clientGreen">Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.LocationAddress)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.LocationAddress)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.LocationCity)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.LocationCity)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.LocationState)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.LocationState)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.LocationPostalCode)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.LocationPostalCode)
+        </dd>
+        <dt class="col-sm-2 pt-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10 pt-2">
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-clientDkGrey" asp-action="Edit" asp-route-id="@Model?.LocationId">Edit</a>
+    <a class="btn btn-clientGreen" asp-action="Index">Back to List</a>
+</div>

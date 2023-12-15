@@ -1,0 +1,154 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Edit:</h3>
+            <h4 class="card-title text-center">@Model.ProductName</h4>
+            <hr />
+            <form asp-action="Edit" class="form-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductId" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ProductName" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="ProductName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ProductStatusId" class="col-sm-3 col-form-label">Product Status</label>
+                            <div class="col-sm-9">
+                                <select asp-for="ProductStatusId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.ProductStatusId"></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CostPerUnit" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="CostPerUnit" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="CostPerUnit" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="PricePerUnit" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="PricePerUnit" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="PricePerUnit" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UnitType" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="UnitType" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="UnitType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ProductTypeId" class="col-sm-3 col-form-label">Product Type</label>
+                            <div class="col-sm-9">
+                                <select asp-for="ProductTypeId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.ProductTypeId"></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UnitsInStock" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="UnitsInStock" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UnitsOnOrder" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="UnitsOnOrder" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="UnitsOnOrder" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorId" class="col-sm-3 col-form-label">Vendor</label>
+                            <div class="col-sm-9">
+                                <select asp-for="VendorId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.VendorId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ProductImage" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="ProductImage" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="ProductImage" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Description" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <textarea asp-for="Description" class="form-control bg-clientBlack text-light" rows="10"></textarea>
+                            </div>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-clientGreen" />
+                    <a class="btn btn-clientBlack" asp-action="Index">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

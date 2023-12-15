@@ -1,0 +1,120 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Vendor
+
+@{
+    ViewData["Title"] = "Create Vendor";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Create New:</h3>
+            <h4 class="card-title text-center">Vendor</h4>
+            <hr/>
+            <form asp-action="Create" class="form-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorName" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorAddress" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorAddress" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorContact" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorContact" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorContact" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorCity" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorCity" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorCity" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorPhone" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorPhone" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorState" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorState" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorState" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorEmail" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorEmail" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VendorPostalCode" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="VendorPostalCode" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="VendorPostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CountryId" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="CountryId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.CountryId"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-clientGreen" />
+                    <a class="btn btn-clientBlack" asp-action="Index">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

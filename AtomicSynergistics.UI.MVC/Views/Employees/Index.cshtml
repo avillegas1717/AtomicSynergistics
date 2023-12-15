@@ -1,0 +1,130 @@
+﻿@model IEnumerable<AtomicSynergistics.DATA.EF.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="d-flex align-items-start flex-column pt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-clientGreen">Add +</a>
+    </p>
+</div>
+<table class="table display cell-border">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.HireDate)
+            </th>
+@*             <th>
+                @Html.DisplayNameFor(model => model.TerminationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th> *@
+            @* <th>
+                @Html.DisplayNameFor(model => model.Manager)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.EmployeeId" class="indexLink">
+                @Html.DisplayFor(modelItem => item.FullName)
+                    </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td> *@
+             <td>
+                @Html.DisplayFor(modelItem => item.HireDate)
+            </td>
+                @*<td>
+                @Html.DisplayFor(modelItem => item.TerminationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.FirstName)
+            </td> *@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-inverse-clientGreen">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-inverse-danger">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTable.moment("M/D/YYYY");
+            $('.table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+}

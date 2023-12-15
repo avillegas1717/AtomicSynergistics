@@ -1,0 +1,48 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.OrderProduct
+
+@{
+    ViewData["Title"] = "Edit Order Product";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Edit:</h3>
+                <h4 class="card-title text-center">Order Product @Model.OrderProductId</h4>
+                <hr />
+                <form asp-action="Edit" class="forms-sample">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="OrderProductId" />
+
+                    <div class="form-group row">
+                        <label asp-for="OrderId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="OrderId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.OrderId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="ProductId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="ProductId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.ProductId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="OrderQuantity" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="OrderQuantity" class="form-control bg-clientBlack text-light">
+                        </div>
+                        <span asp-validation-for="OrderQuantity" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-clientGreen me-2">Submit</button>
+                    <a asp-action="index" class="btn btn-dark">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

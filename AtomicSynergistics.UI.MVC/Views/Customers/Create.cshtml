@@ -1,0 +1,120 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Customer
+
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Create New:</h3>
+            <h4 class="card-title text-center">Customer</h4>
+            <hr/>
+            <form asp-action="Create" class="form-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CustomerName" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="CustomerName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="BillingAddress" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="BillingAddress" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="BillingAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ContactName" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="ContactName" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="ContactName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="BillingCity" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="BillingCity" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="BillingCity" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ContactPhone" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="ContactPhone" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="ContactPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="BillingState" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="BillingState" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="BillingState" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ContactEmail" class="col-sm-3 col-form-label "></label>
+                            <div class="col-sm-9">
+                                <input asp-for="ContactEmail" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="BillingPostalCode" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="BillingPostalCode" class="form-control bg-clientBlack text-light" />
+                            </div>
+                            <span asp-validation-for="BillingPostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CountryId" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="CountryId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.CountryId"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-clientGreen" />
+                    <a class="btn btn-clientBlack" asp-action="Index">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

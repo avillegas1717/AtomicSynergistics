@@ -1,0 +1,157 @@
+﻿@* @model IEnumerable<AtomicSynergistics.DATA.EF.Models.Country>
+
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h1>Countries</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country Name</th>
+            <th>Region</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var country in Model)
+        {
+            <tr>
+                <td>@country.CountryName</td>
+                <td>@country.Region?.RegionName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@country.CountryId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@country.CountryId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@country.CountryId" data-bs-toggle="modal" data-bs-target="#delModal">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Delete Modal -->
+<div class="modal fade DelModal" id="delModal" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+    <div class="modal-dialog delDialog">
+        <div class="modal-content delContent">
+            <div class="modal-header delHeader">
+                <h2 class="modal-title fs-7" id="delModalLabel">DELETE</h2>
+                <br />
+                <h1 class="modal-title fs-5" id="delModalLabel">You are about to delete:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Table for Modal -->
+                <table class="delModalTable">
+                    <tr>
+                        <th>Country:</th>
+                        <td>@Html.DisplayFor(model => model.CountryName)</td>
+                    </tr>
+                    <tr>
+                        <th>Region:</th>
+                        <td>@Html.DisplayFor(model => model.Region?.RegionName)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-clientGrey" data-bs-dismiss="modal">Close</button>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="CountryId" />
+                    <input type="submit" value="Delete" class="btn btn-clientGreen delBtn" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+
+                    @model AtomicSynergistics.DATA.EF.Models.Country
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="DelHead">Delete</h1>
+
+<h3 class="DelText">Are you sure you want to delete this?</h3>
+<div class="container pt-3 flex-column">
+    <div>
+        <h4 class="DelHeader">Country</h4>
+        <hr />
+        <dl class="row DelRow">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CountryName):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CountryName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Region.RegionName):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Region.RegionName)
+            </dd>
+        </dl>
+
+        <a asp-action="index" asp-route-id="CountriesController" class=" btn btn-inverse-clientGreen">Back</a>
+
+        <button type="button" class="btn btn-inverse-danger " data-bs-toggle="modal" data-bs-target="#delModal">
+            Delete
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade DelModal" id="delModal" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+            <div class="modal-dialog delDialog">
+                <div class="modal-content delContent">
+                    <div class="modal-header delHeader">
+                        <h2 class="modal-title fs-7" id="delModalLabel">DELETE</h2>
+                        <br />
+                        <h1 class="modal-title fs-5" id="delModalLabel">You are about to delete:</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- Table for Modal -->
+                        <table class="delModalTable">
+                            <tr>
+                                <th>Country:</th>
+                                <td>@Html.DisplayFor(model => model.CountryName)</td>
+                            </tr>
+                            <tr>
+                                <th>Region:</th>
+                                <td>@Html.DisplayFor(model => model.Region.RegionName)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <a asp-action="index" asp-route-id="CountriesController" class=" btn btn-inverse-clientGreen">Back</a>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="CountryId" />
+                        <input type="submit" value="Delete" class="btn btn-inverse-danger delBtn" />
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .delModalTable {
+        width: 100%;
+        background-color: #000000; /* Light gray background color */
+    }
+
+        .delModalTable th,
+        .delModalTable td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #455515; /* Lighter border color */
+        }
+
+        .delModalTable th {
+            background-color: #000000; /* Lighter gray background color for header */
+        }
+</style>

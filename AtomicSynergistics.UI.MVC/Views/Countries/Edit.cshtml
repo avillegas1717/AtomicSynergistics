@@ -1,0 +1,43 @@
+﻿@model AtomicSynergistics.DATA.EF.Models.Country
+
+@{
+    ViewData["Title"] = "Edit Country";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Edit:</h3>
+                <h4 class="card-title text-center">@Model.CountryName</h4>
+                <hr/>
+                <form asp-action="Edit" class="forms-sample">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="CountryId" />
+                    <div class="form-group row">
+                        <label asp-for="CountryName" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input type="text" asp-for="CountryName" class="form-control bg-clientBlack text-light">
+                            <span asp-validation-for="CountryName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="RegionId" class="col-sm-3 col-form-label">Region</label>
+                        <div class="col-sm-9">
+                            <select asp-for="RegionId" class="form-control bg-clientBlack text-light" asp-items="ViewBag.RegionId"></select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-clientGreen me-2">Save</button>
+                    <a asp-action="index" class="btn btn-dark">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
